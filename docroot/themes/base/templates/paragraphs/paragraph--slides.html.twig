@@ -1,0 +1,9 @@
+{% block content %}
+    {% set count = content.field_slides['#items']|length < 6 ? 'hidden'%}
+    <div class="slick single">
+        {{ content }}
+    </div>
+    <div class="slick thumbs hidden-xs {{ count }}">
+        {{ content }}
+    </div>
+{% endblock %} 

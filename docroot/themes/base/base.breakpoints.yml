@@ -1,0 +1,39 @@
+base.xs:
+  label: XS (up to 767px)
+  mediaQuery: 'all and (max-width: 767px)'
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+base.sm:
+  label: SM (between 768px and 991px)
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 991px)'
+  weight: 1
+  multipliers:
+    - 1x
+base.sm-max:
+  label: SM-MAX (up to 991px)
+  mediaQuery: 'all and (max-width: 991px)'
+  weight: 1
+  multipliers:
+    - 1x
+base.md:
+  label: MD (between 992px and 1199px)
+  mediaQuery: 'all and (min-width: 992px) and (max-width: 1199px)'
+  weight: 2
+  multipliers:
+    - 1x
+base.lg:
+  label: LG (over 1200px)
+  mediaQuery: 'all and (min-width: 1200px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+base.xl:
+  label: XL (over 1400px)
+  mediaQuery: 'all and (min-width: 1400px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x

@@ -1,0 +1,14 @@
+name: 'Webform Encrypt Test'
+type: module
+description: 'Provides test config for webform_encrypt module tests.'
+package: 'Webform'
+# core: 8.x
+dependencies:
+  - webform_encrypt:webform_encrypt
+  - encrypt:encrypt_test
+
+# Information added by Drupal.org packaging script on 2019-03-13
+version: '8.x-1.0-alpha3'
+core: '8.x'
+project: 'webform_encrypt'
+datestamp: 1552462396

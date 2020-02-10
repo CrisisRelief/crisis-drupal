@@ -1,0 +1,23 @@
+<article{{ attributes.addClass("row no-gutter equal-group") }}>
+    {% if content.field_image is not empty %}
+        <div class="col-xs-12 col-sm-5 equal">
+            <a href="{{ url }}">{{ content.field_image }}</a>
+        </div>
+        <div class="col-xs-12 col-sm-7 equal">
+    {% else %}
+        <div class="col-xs-12">        
+    {% endif %}
+        <div class="text">
+            <h3><a href="{{ url }}">{{ label }}</a></h3>
+            {% if content.field_date is not empty %}
+                <div class="date">
+                    {{ content.field_date }}
+                </div>
+            {% endif %}
+            <p>{{ content.body.0 }}...</p>
+            <div>
+                <a href="{{ url }}" class="btn red small" aria-label="{{ label.0 }}">Read More</a>
+            </div>
+        </div>
+    </div>
+</article>

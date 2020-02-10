@@ -1,0 +1,145 @@
+{#
+/**
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ */
+#}
+<div{{ wrap }}>
+<a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+{% if page.header %}
+    <section class="header" role="header" aria-label="Header">
+        <div class="container">
+            <div class="row">
+                {{ page.header }}
+            </div>
+        </div>
+    </section>
+{% endif %} 
+{% if page.navigation %}
+    <section class="navigation" role="navigation" aria-label="Navigation">
+        <div class="container">
+            <div class="row">
+                {{ page.navigation }}
+            </div>
+        </div>
+    </section>
+{% endif %} 
+{% if page.banner %}
+    <section class="banner" role="banner" aria-label="Banner">
+        <div class="container-fluid">
+            <div class="row">
+                {{ page.banner }}
+            </div>
+        </div>
+    </section>
+{% endif %} 
+{% if page.top %}
+    <section class="top" role="complimentary" aria-label="Featured Top Content" id="featured">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    {{ page.top }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %} 
+<section class="main" role="main" aria-label="Main Content">
+     {% set contentTop = page.content_top|render %}
+     {% if contentTop|striptags('<div><img><ul><a>')|trim is not empty %}
+        <section class="content-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {{ page.content_top }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    {% if page.content %}
+        <section class="content" aria-label="Content">
+            <div class="container">
+                <div class="row">
+                     {% if page.sidebar %} 
+                        
+                        <div class="col-xs-12 col-sm-8">
+                            <div class="main">
+                                {{ page.content }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-3 pull-right">
+                            <div class="sidebar">
+                                {{ page.sidebar }}
+                            </div>
+                        </div>
+                    {% else %} 
+                        <div class="col-xs-12">
+                            <div class="main">
+                                {{ page.content }}
+                            </div>
+                        </div>
+                    {% endif %}                
+                </div>
+            </div>
+        </section>
+    {% endif %} 
+    {% if page.content_bottom %}
+        <section class="content-bottom">
+            <div class="container">
+                <div class="row">
+                    {{ page.content_bottom }}
+                </div>
+            </div>
+        </section>
+    {% endif %} 
+</section>
+{% if page.bottom %}
+    <section class="bottom" role="complimentary" aria-label="Bottom Content">
+        <div class="container">
+            {{ page.bottom }}
+        </div>
+    </section>
+{% endif %} 
+{% if page.feature %}
+    <section class="feature" role="complimentary" aria-label="Featured Bottom Content">
+        <div class="container-fluid">
+            <div class="row">
+                {{ page.feature }}
+            </div>
+        </div>
+    </section>
+{% endif %} 
+{% if page.footer %}
+    <section class="footer" role="complimentary" aria-label="Footer Content">
+        <div class="container">
+            <div class="row">
+                {{ page.footer }}
+            </div>
+        </div>
+    </section>
+{% endif %}
+{% if page.copyright %}
+    <section class="copyright" role="complimentary" aria-label="Copyright Content">
+        <div class="container">
+            <div class="row">
+                {{ page.copyright }}
+            </div>
+        </div>
+    </section>
+{% endif %} 
+</div>
+{% if page.offcanvas %}
+    <section class="offcanvas">
+        <div class="container-fluid">
+            <div class="row">
+                {{ page.offcanvas }}
+            </div>
+        </div>
+    </section>
+{% endif %} 

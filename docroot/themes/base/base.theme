@@ -1,0 +1,38 @@
+<?php
+
+use Drupal\base\Theme;
+
+function base_preprocess_html(array &$vars) {
+
+}
+
+function base_preprocess_page(array &$vars) {
+  Theme::getSiteWrapClasses($vars);
+}
+
+function base_preprocess_node(array &$vars) {
+
+}
+
+function base_preprocess_region(array &$vars) {
+
+}
+
+function base_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    $suggestions[] = 'page__'.$content_type;
+  }
+}
+
+function base_theme_suggestions_block_alter(array &$suggestions, array $vars) {
+  Theme::getThemeSuggestionsForBlocks($suggestions, $vars);
+}
+
+function base_theme_suggestions_paragraph_alter(array &$suggestions, array $vars) {
+  Theme::getThemeSuggestionsForParagraphs($suggestions, $vars);
+}
+
+function base_preprocess_container(array &$vars) {
+
+}

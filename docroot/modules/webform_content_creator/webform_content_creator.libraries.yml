@@ -1,0 +1,10 @@
+webform_content_creator:
+  version: VERSION
+  css:
+    theme:
+      css/webform-content-creator.css: {}
+  js:
+    js/webform_content_creator.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

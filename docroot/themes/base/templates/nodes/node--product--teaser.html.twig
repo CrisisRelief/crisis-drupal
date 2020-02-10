@@ -1,0 +1,8 @@
+<article{{ attributes.addClass("product teaser") }}>    
+    <a href="{{ url }}" aria-label="{{ label.0 }}">{{ content.field_image }}</a>
+    {% if content.field_website_link is not empty %}
+        <a href="{{ content.field_website_link[0]['#url'] }}" target="_blank" class="btn green">Buy Now</a>
+    {% else %}]
+        <a href="{{ url }}" target="_blank" class="btn green">Buy Now</a>
+    {% endif %}
+</article>

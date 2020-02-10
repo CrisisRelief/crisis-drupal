@@ -1,0 +1,65 @@
+global:
+  version: VERSION
+  css:
+    theme:
+      public/style.css: {}
+  js:
+    public/script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - base/bootstrap
+    - base/bootstrap-select
+    - base/awesome-bootstrap-checkbox
+    - base/matchheight
+    - base/slick
+    - base/copy-clipboard
+    - base/enquire
+    - base/knockout
+bootstrap:
+  css:
+    theme:
+      '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css': { type: external, minified: true }
+      '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css': { type: external, minified: true }
+  js:
+    '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js': { type: external, minified: true }
+  dependencies:
+    - core/jquery
+bootstrap-select:
+  css:
+    theme:
+      '//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css': { type: external, minified: true }
+  js:
+    '//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js': { type: external, minified: true }
+  dependencies:
+    - base/bootstrap
+awesome-bootstrap-checkbox:
+  css:
+    theme:
+      '//cdnjs.cloudflare.com/ajax/libs/awesome-bootstrap-checkbox/0.3.7/awesome-bootstrap-checkbox.min.css': { type: external, minified: true }
+  dependencies:
+    - base/bootstrap
+copy-clipboard:
+  js:
+    '//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js': { type: external, minified: true }
+enquire:
+  js:
+    '//cdnjs.cloudflare.com/ajax/libs/enquire.js/2.1.2/enquire.min.js': { type: external, minified: true }
+knockout:
+  js:
+    '//cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js': { type: external, minified: true }
+matchheight:
+  js:
+    '//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js': { type: external, minified: true }
+  dependencies:
+    - core/jquery
+slick:
+  js:
+    '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js': { type: external, minified: true }
+  css:
+    theme:
+      '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css': { type: external, minified: true }
+      '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css': { type: external, minified: true }
+  dependencies:
+    - core/jquery

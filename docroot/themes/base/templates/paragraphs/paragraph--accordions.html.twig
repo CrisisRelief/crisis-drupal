@@ -1,0 +1,15 @@
+{% extends 'paragraph.html.twig' %}
+{% block content %}
+  <div class="accordions-group">
+    <h2>{{ content.field_title.0 }}</h2>
+    <div class="body-text">{{ content.field_body }}</div>    
+    <div class="accordions">
+        {% for accordion in paragraph.field_items %}
+            <div class="accordion-item">
+                <h4{{ title_attributes }}>{{ accordion.entity.field_title.value }}</h4>
+                <div>{{ accordion.entity.field_body.value|raw }}</div>
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+{% endblock %}

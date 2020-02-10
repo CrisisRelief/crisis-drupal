@@ -1,0 +1,113 @@
+<article{{ attributes.addClass('candidate') }}>
+    <div class="row">
+      {% if content.field_related_news|render is not empty %}
+          {% if content.field_featured_image.0 is not empty %}
+            <div class="col-xs-12 col-sm-8 text">
+                <h2>{{ content.field_state.0 }} {{ content.field_district.0 }}</h2>
+                {% if content.field_candidate_type is not empty %} 
+                    <h3>{{ content.field_candidate_type.0 }}</h3>
+                {% endif %}
+                {% if node.field_is_portrait.value %}                    
+                    <div class="col-xs-12 col-sm-4 pull-right">
+                    {% if content.field_winner %}  
+                        <div class="winner">W</div>
+                    {% endif %}
+                {% else %}                    
+                    <div>
+                    {% if content.field_winner %}  
+                        <div class="winner">W</div>
+                    {% endif %}
+                {% endif %}
+                    {{ content.field_featured_image }}
+                </div>
+                {{ content.body }}
+                <a href="{{ content.field_website_link[0]['#url'] }}" class="btn red underline">{{ content.field_website_link[0]['#title'] }}</a>
+            </div>
+            <div class="col-xs-12 col-sm-4 sidebar">
+                {{ content.field_related_news }}
+            </div>
+          {% else %}
+            <div class="col-xs-12 text">
+                <h2>{{ content.field_state.0 }} {{ content.field_district.0 }}</h2>
+                {{ content.body }}
+                <a href="{{ content.field_website_link[0]['#url'] }}" class="btn red underline">{{ content.field_website_link[0]['#title'] }}</a>
+            </div>
+          {% endif %}
+      {% else %}
+          {% if content.field_featured_image.0 is not empty %}
+            <div class="col-xs-12 col-sm-4 pull-right img">
+                {% if content.field_winner %}  
+                    <div class="winner">W</div>
+                {% endif %}
+                {{ content.field_featured_image }}
+            </div>
+            <div class="col-xs-12 col-sm-8 text">
+                <h2>{{ content.field_state.0 }} {{ content.field_district.0 }}</h2>
+                {% if content.field_candidate_type is not empty %} 
+                    <h3>{{ content.field_candidate_type.0 }}</h3>
+                {% endif %}
+                {{ content.body }}
+                <a href="{{ content.field_website_link[0]['#url'] }}" class="btn red underline">{{ content.field_website_link[0]['#title'] }}</a>
+            </div>
+          {% else %}
+            <div class="col-xs-12 text">
+                <h2>{{ content.field_state.0 }} {{ content.field_district.0 }}</h2>
+                {{ content.body }}
+                <a href="{{ content.field_website_link[0]['#url'] }}" class="btn red underline">{{ content.field_website_link[0]['#title'] }}</a>
+            </div>
+          {% endif %}
+      {% endif %}
+    </div>
+    <div class="row no-gutter">
+        {% if content.field_volunteer_form|render is not empty %}
+            <div class="col-xs-12 col-sm-5 equal">
+                <div class="box1">
+                    <h3>Sign up to volunteer</h3>
+                    {{ content.field_volunteer_form }}
+                </div>
+            </div>
+            {% if content.field_twitter_url.0 is not empty %}
+                <div class="col-xs-12 col-sm-7 equal">
+                    <div class="box2">
+                        <h3>Stay up to date</h3>
+                        <a class="twitter-timeline" data-height="250" data-theme="light" data-link-color="#0d71ba" href="{{ content.field_twitter_url.0 }}?ref_src=twsrc%5Etfw">Tweets by {{ content.field_name }}</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>                 
+                    </div>  
+                </div>
+            {% endif %} 
+        {% else %}
+            {% if content.field_twitter_url.0 is not empty %}
+                <div class="col-xs-12 col-sm-7 equal pull-right">
+                    <div class="box1">
+                        <h3>Sign up to volunteer</h3>
+                        {% if content.field_volunteer_link[0]['#url'] is not empty %}
+                            <p>Being a volunteer doesn't mean you have to spend all day canvassing! There are lots of things you can do to help, even if you only have 5 minutes. Find out how you can help in your local races today!</p>
+                            <p><a href="{{ content.field_volunteer_link[0]['#url'] }}" class="btn red">{{ content.field_volunteer_link[0]['#title'] }}</a></p>
+                        {% else %}                            
+                            <p>Are you skilled in social media? Comfortable with computers? Visit our Volunteer section to find out how you can help the #BlueWave2018. </p>
+                            <p><a href="/volunteers" class="btn red">How can I help?</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5 equal">
+                    <div class="box2">
+                        <h3>Stay up to date</h3>
+                        <a class="twitter-timeline" data-height="250" data-theme="light" data-link-color="#0d71ba" href="{{ content.field_twitter_url.0 }}?ref_src=twsrc%5Etfw">Tweets by {{ content.field_name }}</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>                 
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                    <div class="box1">
+                        <h3>Sign up to volunteer</h3>
+                        {% if content.field_volunteer_link[0]['#url'] is not empty %}
+                            <p>Being a volunteer doesn't mean you have to spend all day canvassing! There are lots of things you can do to help, even if you only have 5 minutes. Find out how you can help in your local races today!</p>
+                            <p><a href="{{ content.field_volunteer_link[0]['#url'] }}" class="btn red">{{ content.field_volunteer_link[0]['#title'] }}</a></p>
+                        {% else %}                            
+                            <p>Are you skilled in social media? Comfortable with computers? Visit our Volunteer section to find out how you can help the #BlueWave2018. </p>
+                            <p><a href="/volunteers" class="btn red">How can I help?</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}   
+    </div>
+</article>

@@ -1,0 +1,48 @@
+.grid {
+    display: grid;
+    grid-template-rows: auto;
+    align-items: stretch;
+    justify-items: stretch;
+    width: 100%;
+    &::before, &::after {
+        display:none!important;
+    }
+    //GUTTER SIZES
+    &.no-gutter {        
+        grid-gap: 0;
+    }
+    &.normal {        
+        grid-gap: 15px;
+    }
+    &.lg-gutter {        
+        grid-gap: 30px;
+    }
+    //GRID COLUMNS
+    &.one {        
+        grid-template-columns: repeat(1, 1fr);
+    }
+    &.two {        
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &.three {        
+        grid-template-columns: repeat(3, 1fr);
+        @include breakpoint(sm) {            
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include breakpoint(xs) {            
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    &.four {        
+        grid-template-columns: repeat(4, 1fr);
+        @include breakpoint(sm) {            
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include breakpoint(xs) {            
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .text {
+        margin: 0;
+    }
+}

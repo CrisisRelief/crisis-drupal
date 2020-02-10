@@ -1,0 +1,12 @@
+<article{{ attributes.addClass('candidate-teaser') }}>
+    {% if node.field_winner.value %}  
+        <div class="winner">Winner</div>
+    {% endif %}
+    <div class="img">
+        <a href="{{ url }}">{{ content.field_image }}</a>
+    </div>
+    <div class="text">
+        <h3><a href="{{ url }}">{{ content.field_name.0 }}</a></h3>
+        <h4>{{ content.field_state.0 }} {{ content.field_district.0 }}</h4>
+    </div>
+</article>

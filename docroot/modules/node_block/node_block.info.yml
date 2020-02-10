@@ -1,0 +1,7 @@
+name: 'Node Block'
+description: 'Adds node block to a project.'
+package: 'Node Block'
+type: module
+dependencies:
+  - node
+core: '8.x'

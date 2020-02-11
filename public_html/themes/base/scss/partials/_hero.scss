@@ -1,0 +1,25 @@
+.hero {
+    position: relative;
+    .img {
+        &::before {
+            background:linear-gradient(180deg, rgba(27,42,73,.2) 0%, rgba(27, 42, 73, .80) 80%);
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .blurb {
+        bottom: 20px;
+        color: #fff;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+}

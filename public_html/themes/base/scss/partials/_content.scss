@@ -1,0 +1,93 @@
+@charset "UTF-8";
+.site-wrap {    
+    section {
+        position:relative;
+        .container {
+            position:relative;
+            height: 100%;
+        }
+        &.navigation {
+            background:#f5f5f5;
+            padding: 11px 0;
+            .breadcrumb {
+                padding: 0 15px;
+            }
+        }
+        &.main {
+            .content {
+                margin-top: 60px;
+            }
+            .sidebar {
+                .nav {
+                    background: $dk-blue;
+                    padding:25px 30px;
+                    .nav-toggle {
+                        display:none;
+                        @include breakpoint(sm-max) {
+                            display: block;
+                        }
+                    }
+                    ul:not(.contextual-links) {
+                        list-style-type: none;
+                        padding:0;
+                        margin:0;
+                        li {
+                            margin-bottom: 12px;
+                            line-height: 21px;
+                            &.level-1 {
+                                display:none;
+                                &.active-trail {
+                                    display: block;
+                                    > a {
+                                        display: block;
+                                        font-size: 14px;
+                                        font-weight: 700;
+                                        letter-spacing: 1px;
+                                        margin-bottom: 10px;
+                                        text-transform: uppercase;
+                                    }
+                                }
+                                > ul {
+                                    .level-2 {
+                                        > ul {   
+                                            margin:10px 0 0 10px;
+                                            .level-3 {
+                                                > ul {
+                                                    border-left: 2px solid lighten($teal,10%);
+                                                    margin:10px 0 0 10px;       
+                                                    padding-left: 10px;
+                                                    .level-4 {
+                                                        a {
+                                                            font-size: 14px                                                            
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }                                
+                                }
+                            }
+                            a {
+                                font-size: 16px;
+                                line-height: 21px;
+                                color: #fff;
+                                &:hover, &:focus {
+                                    color:$teal;
+                                }
+                                &.is-active {
+                                    color:$teal;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            + .feature {
+                margin-top:40px;
+            }
+            + .footer {
+                margin-top:20px;
+            }
+        }
+    }
+}

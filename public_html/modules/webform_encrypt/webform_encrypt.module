@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Main module file for the Webform Encrypt module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function webform_encrypt_form_webform_ui_element_form_alter(&$form, FormStateInterface $form_state) {
+  /** @var \Drupal\webform\WebformElementManagerInterface $element_manager */
+  $element_manager = \Drupal::service('plugin.manager.webform.element');
+
+  $element = $form_state->getBuildInfo()['callback_object']->getElement();
+  $element_handler = $element_manager->getElementInstance($element);
+
+  // Checks whether the element carries a value.
+  // Only input elements are allowed to be encrypted.
+  $is_input_element = $element_handler->isInput($element);
+  if ($is_input_element) {
+    // To provide the fieldset for encryption fields on element config form.
+    $form['element_encrypt'] = [
+      '#type' => 'details',
+      '#title' => t('Encryption'),
+      '#group' => 'tab_advanced',
+    ];
+
+    // To provide the encryption fields for webform elements.
+    $form['element_encrypt']['encrypt'] = [
+      '#type' => 'webform_element_encrypt',
+      '#title' => t('Encryption'),
+      '#title_display' => 'hidden',
+    ];
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function webform_encrypt_entity_type_alter(array &$entity_types) {
+  /* @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+  if (isset($entity_types['webform_submission'])) {
+    $entity_types['webform_submission']->setStorageClass('Drupal\webform_encrypt\WebformEncryptSubmissionStorage');
+    $entity_types['webform_submission']->setAccessClass('Drupal\webform_encrypt\WebformEncryptSubmissionAccessControlHandler');
+  }
+}

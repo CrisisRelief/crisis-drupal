@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - key.key.test
+  module:
+    - encrypt_test
+id: test_encryption_profile
+label: 'Test encryption profile'
+encryption_method: test_encryption_method
+encryption_key: test
+encryption_method_configuration: {  }

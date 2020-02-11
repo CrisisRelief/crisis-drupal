@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update related functions for the Webform Encrypt module.
+ */
+
+use Drupal\encrypt\Entity\EncryptionProfile;
+use Drupal\webform\Entity\Webform;
+
+/**
+ * Implements hook_uninstall().
+ */
+function webform_encrypt_uninstall() {
+  // Decrypt all encrypted form values.
+  $submissions = \Drupal::database()->select('webform_submission_data', 'wsd')
+    ->fields('wsd', [])
+    ->execute()
+    ->fetchAll();
+
+  foreach ($submissions as $submission) {
+    $webform = Webform::load($submission->webform_id);
+    $config = $webform->getThirdPartySetting('webform_encrypt', 'element');
+    if (!empty($config[$submission->name])) {
+      $unserialized = unserialize($submission->value);
+      if (isset($unserialized['data']) && isset($unserialized['encrypt_profile'])) {
+        $data = $unserialized['data'];
+        $encryption_profile = EncryptionProfile::load($unserialized['encrypt_profile']);
+      }
+      else {
+        $data = $submission->value;
+        $encryption_profile = EncryptionProfile::load($config[$submission->name]['encrypt_profile']);
+      }
+      $value = Drupal::service('encryption')
+        ->decrypt($data, $encryption_profile);
+      \Drupal::database()->update('webform_submission_data')
+        ->fields(['value' => $value])
+        ->condition('sid', $submission->sid)
+        ->condition('name', $submission->name)
+        ->condition('property', $submission->property)
+        ->condition('delta', $submission->delta)
+        ->execute();
+    }
+  }
+}
+
+/**
+ * Migrate webform encrypt enabed elements to using third party settings.
+ */
+function webform_encrypt_update_8101() {
+  // Upgrade path for https://www.drupal.org/node/2921824
+  // Get a list of all encrypt enabled webform elements.
+  $old_config = \Drupal::service('config.factory')
+    ->get('webform.encrypt')
+    ->get('element.settings');
+
+  if (!empty($old_config)) {
+    foreach ($old_config as $element_name => $config) {
+      if ($config['encrypt'] !== '1') {
+        unset($old_config[$element_name]);
+      }
+    }
+  }
+  if (!empty($old_config)) {
+    // Loop through all webform on the site.
+    $webforms = Webform::loadMultiple();
+    foreach ($webforms as $webform) {
+      $webform_elements = $webform->getElementsDecodedAndFlattened();
+      $webform_elements_names = array_keys($webform_elements);
+      $new_config = [];
+      foreach ($webform_elements_names as $webform_element_name) {
+        // If the webform is using an encrypt enabled element.
+        if (isset($old_config[$webform_element_name])) {
+          // Add the new settings to be saved.
+          $values = $old_config[$webform_element_name];
+          $new_config[$webform_element_name] = [
+            'encrypt' => ($values['encrypt'] == '1'),
+            'encrypt_profile' => $values['encrypt_profile'],
+          ];
+        }
+      }
+      if (!empty($new_config)) {
+        $webform->setThirdPartySetting('webform_encrypt', 'element', $new_config);
+        drupal_set_message(t('Set webform_encrypt settings for %elements on the webform %webform.', [
+          '%elements' => implode(', ', array_keys($new_config)),
+          '%webform' => $webform->get('title'),
+        ]));
+        $webform->save();
+        drupal_set_message(t('Saved the webform %webform with the new webform_encrypt settings.'), ['%webform' => $webform->get('title')]);
+      }
+    }
+  }
+
+  // Delete the old config.
+  \Drupal::configFactory()->getEditable('webform.encrypt')->delete();
+  drupal_set_message(t('webform.encrypt configuration object deleted. If you had exported it you should remove it from your filesystem now.'));
+  drupal_flush_all_caches();
+}
+
+/**
+ * Update existing encrypted data.
+ */
+function webform_encrypt_update_8102() {
+  $submissions = \Drupal::database()->select('webform_submission_data', 'wsd')
+    ->fields('wsd', [])
+    ->execute()
+    ->fetchAll();
+
+  foreach ($submissions as $submission) {
+    $webform = Webform::load($submission->webform_id);
+    $config = $webform->getThirdPartySetting('webform_encrypt', 'element');
+    if (!empty($config[$submission->name])) {
+      $encrypted_data = [
+        'data' => $submission->value,
+        'encrypt_profile' => $config[$submission->name]['encrypt_profile'],
+      ];
+      \Drupal::database()->update('webform_submission_data')
+        ->fields(['value' => serialize($encrypted_data)])
+        ->condition('sid', $submission->sid)
+        ->condition('name', $submission->name)
+        ->condition('property', $submission->property)
+        ->condition('delta', $submission->delta)
+        ->execute();
+    }
+  }
+}

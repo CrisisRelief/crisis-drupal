@@ -1,0 +1,14 @@
+name: 'Webform Encrypt'
+type: module
+description: 'Provides encryption for webform components.'
+package: 'Webform'
+# core: 8.x
+dependencies:
+  - webform:webform
+  - encrypt:encrypt
+
+# Information added by Drupal.org packaging script on 2019-03-13
+version: '8.x-1.0-alpha3'
+core: '8.x'
+project: 'webform_encrypt'
+datestamp: 1552462396

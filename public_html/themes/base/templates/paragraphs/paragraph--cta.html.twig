@@ -1,0 +1,17 @@
+{% block content %}
+{% set position = paragraph.field_position.value %}
+
+    {% if position == 'background' %}
+        {% set bg = "background:url({{ file_url(paragraph.field_image.entity.uri.value) }}) no-repeat" %}
+    {% endif %}
+  <div class="cta {{position}}" style="{{bg}}">
+    {% if position == 'above' %}
+        <div class="img">{{content.field_image}}</div>
+    {% endif %}
+    <h4>{{ content.field_title.0 }}</h4>
+    {{ content.field_blurb }}      
+    {% if position == 'below' %}
+        <div class="img">{{content.field_image}}</div>
+    {% endif %}
+  </div>
+{% endblock %}

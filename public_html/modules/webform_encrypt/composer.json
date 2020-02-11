@@ -1,0 +1,48 @@
+{
+    "name": "drupal/webform_encrypt",
+    "description": "Provides encryption for webform components.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "homepage": "https://drupal.org/project/webform_encrypt",
+    "authors": [
+        {
+            "name": "Tushar Thatikonda (th_tushar)",
+            "homepage": "https://www.drupal.org/u/th_tushar",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Manuel Garcia (Manuel Garcia)",
+            "homepage": "https://www.drupal.org/u/manuel-garcia",
+            "role": "Co-maintainer"
+        },
+        {
+            "name": "Vijaya Chandran Mani (vijaycs85)",
+            "homepage": "https://www.drupal.org/u/vijaycs85",
+            "role": "Co-maintainer"
+        },
+        {
+            "name": "Saul Willers (fenstrat)",
+            "homepage": "https://www.drupal.org/u/fenstrat",
+            "role": "Co-maintainer"
+        },
+        {
+            "name": "Rob Holmes (Rob Holmes)",
+            "homepage": "https://www.drupal.org/u/rob-holmes",
+            "role": "Co-maintainer"
+        },
+        {
+            "name": "Jean Ribeiro (jribeiro)",
+            "homepage": "https://www.drupal.org/u/jribeiro",
+            "role": "Co-maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://drupal.org/project/issues/webform_encrypt",
+        "source": "http://cgit.drupalcode.org/webform_encrypt"
+    },
+    "require": {
+        "drupal/webform": ">=5.0.0-rc22",
+        "drupal/encrypt": "3.*"
+    }
+}

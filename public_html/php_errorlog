@@ -1,0 +1,24 @@
+[11-Feb-2020 17:16:38 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'Drupal\Core\DrupalKernel' not found in /home/customer/www/test.crisis.app/public_html/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/test.crisis.app/public_html/index.php on line 16
+[11-Feb-2020 17:16:53 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'Drupal\Core\DrupalKernel' not found in /home/customer/www/test.crisis.app/public_html/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/test.crisis.app/public_html/index.php on line 16
+[11-Feb-2020 17:17:09 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'Drupal\Core\DrupalKernel' not found in /home/customer/www/test.crisis.app/public_html/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/test.crisis.app/public_html/index.php on line 16
+[11-Feb-2020 17:17:12 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'Drupal\Core\DrupalKernel' not found in /home/customer/www/test.crisis.app/public_html/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/test.crisis.app/public_html/index.php on line 16
+[11-Feb-2020 17:17:55 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/customer/www/test.crisis.app/public_htmlvendor/autoload.php' (include_path='.:/usr/local/php71/pear') in /home/customer/www/test.crisis.app/public_html/autoload.php on line 16
+[11-Feb-2020 17:18:02 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/customer/www/test.crisis.app/public_htmlvendor/autoload.php' (include_path='.:/usr/local/php71/pear') in /home/customer/www/test.crisis.app/public_html/autoload.php on line 16
+[11-Feb-2020 17:18:26 CST6CDT] PHP Fatal error:  require(): Failed opening required '/home/customer/www/test.crisis.app/public_htmlvendor/autoload.php' (include_path='.:/usr/local/php71/pear') in /home/customer/www/test.crisis.app/public_html/autoload.php on line 16
+[11-Feb-2020 17:18:31 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'Drupal\Core\DrupalKernel' not found in /home/customer/www/test.crisis.app/public_html/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/test.crisis.app/public_html/index.php on line 16
+[11-Feb-2020 23:26:53 UTC] Uncaught PHP Exception Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException: "The "menu" entity type did not specify a storage handler." at /home/customer/www/test.crisis.app/public_html/core/lib/Drupal/Core/Entity/EntityTypeManager.php line 272

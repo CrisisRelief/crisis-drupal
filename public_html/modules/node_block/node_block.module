@@ -1,0 +1,13 @@
+<?php
+
+function node_block_theme_suggestions_block_alter(array &$suggestions, array $vars) {
+  // Support for node block theme suggestions
+  if (isset($vars['elements']['#configuration']['theme_suggestion'])) {
+    $base_plugin_id = str_replace('-', '_', $vars['elements']['#base_plugin_id']);
+    $theme_suggestion = $vars['elements']['#configuration']['theme_suggestion'];
+    if (!empty($theme_suggestion)) {
+      $theme_suggestion = preg_replace('@[^a-z0-9]+@', '_', strtolower($theme_suggestion));
+      $suggestions[] = 'block__' . $base_plugin_id . '__' . $theme_suggestion;
+    }
+  }
+}

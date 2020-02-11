@@ -1,0 +1,24 @@
+<article{{ attributes.addClass('featured-candidate') }}>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-5 pull-right">
+                <div class="img">
+                    <a href="{{ url }}">{{ content.field_image }}</a>
+                    <div class="name">
+                        <small>Learn more about</small>
+                        <h3>{{ content.field_name.0 }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5 text">
+                <h2>Candidate of the Day</h2>
+                <h3>{{ content.field_name.0 }}</h3>
+                <h4>{{ content.field_state.0 }} {{ content.field_district.0 }}{% if content.field_candidate_type is not empty %} 
+                     - {{ content.field_candidate_type.0 }}
+                {% endif %}</h4>
+                {{ content.field_cotd_summary }}
+                <a href="{{ content.field_website_link[0]['#url'] }}" class="btn red underline">{{ content.field_website_link[0]['#title'] }}</a>
+            </div>
+        </div>
+    </div>
+</article>

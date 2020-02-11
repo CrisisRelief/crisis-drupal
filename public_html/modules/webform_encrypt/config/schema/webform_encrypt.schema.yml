@@ -1,0 +1,16 @@
+webform.settings.third_party.webform_encrypt:
+  type: mapping
+  label: 'Webform encrypt configuration'
+  mapping:
+    element:
+      type: sequence
+      label: 'Element'
+      sequence:
+        type: mapping
+        mapping:
+          encrypt:
+            type: boolean
+            label: 'Encrypt enabled'
+          encrypt_profile:
+            type: string
+            label: 'Encrypt profile'

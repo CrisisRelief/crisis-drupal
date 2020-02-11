@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * Implements hook_webform_submission_insert().
+ */
+function webform_content_creator_webform_submission_insert($webform_submission) {
+  if (empty($webform_submission)) {
+    return;
+  }
+
+  if (!$webform_submission->isDraft()) {
+    $entities = \Drupal::entityTypeManager()->getStorage('webform_content_creator')->loadMultiple();
+    foreach ($entities as $e) {
+      if (!$e->equalsWebform($webform_submission->bundle()) || !$e->existsContentType()) {
+        continue;
+      }
+      $e->createNode($webform_submission);
+    }
+  }
+}
+
+/**
+ * Implements hook_webform_submission_update().
+ */
+function webform_content_creator_webform_submission_update($webform_submission) {
+  if (empty($webform_submission) || empty($webform_submission->original)) {
+    return;
+  }
+
+  if (!$webform_submission->isDraft()) {
+    $entities = \Drupal::entityTypeManager()->getStorage('webform_content_creator')->loadMultiple();
+    foreach ($entities as $e) {
+      if (!$e->equalsWebform($webform_submission->bundle()) || !$e->existsContentType()) {
+        continue;
+      }
+      if ($webform_submission->original->isDraft()) {
+        $e->createNode($webform_submission);
+      } else {
+        $e->updateNode($webform_submission, 'edit');
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_webform_submission_delete().
+ */
+function webform_content_creator_webform_submission_delete($webform_submission) {
+  $entities = \Drupal::entityTypeManager()->getStorage('webform_content_creator')->loadMultiple();
+  foreach ($entities as $e) {
+    if (!$e->equalsWebform($webform_submission->bundle()) || !$e->existsContentType()) {
+      continue;
+    }
+    $e->updateNode($webform_submission, 'delete');
+  }
+}
+
+/**
+ * Implements hook_node_type_delete().
+ */
+function webform_content_creator_node_type_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  $entities = \Drupal::entityTypeManager()->getStorage('webform_content_creator')->loadMultiple();
+  foreach ($entities as $e) {
+    if ($e->equalsContentType($entity->id())) {
+      $e->delete();
+    }
+  }
+}
+
+/**
+ * Implements hook_webform_delete().
+ */
+function webform_content_creator_webform_delete(Drupal\Core\Entity\EntityInterface $entity) {
+  $entities = \Drupal::entityTypeManager()->getStorage('webform_content_creator')->loadMultiple();
+  foreach ($entities as $e) {
+    if ($e->equalsWebform($entity->id())) {
+      $e->delete();
+    }
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function webform_content_creator_page_attachments(array &$attachments) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name === 'entity.webform_content_creator.manage_fields_form') {
+    $attachments['#attached']['library'][] = 'webform_content_creator/webform_content_creator';
+  }
+}

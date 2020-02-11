@@ -1,0 +1,16 @@
+<article{{ attributes.addClass("product") }}>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            {{ content.field_image }}
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            {{ content.body }}            
+            {% if content.field_price.0 is not empty %}
+                <h4>Price: ${{ content.field_price.0 }}</h4>
+            {% endif %}
+            {% if content.field_website_link is not empty %}
+                <a href="{{ content.field_website_link[0]['#url'] }}" target="_blank" class="btn green">Buy Now</a>
+            {% endif %}
+        </div>
+    </div>
+</article>

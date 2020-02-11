@@ -1,0 +1,24 @@
+name: Base
+type: theme
+description: 'Base Theme'
+package: Core
+version: VERSION
+core: 8.x
+base theme: false
+libraries:
+  - base/global
+regions:
+  drawer: 'Drawer'
+  header: 'Header'
+  navigation: 'Navigation'
+  banner: 'Banner'
+  top: 'Top'
+  content_top: 'Content Top'
+  content: 'Content'
+  sidebar: 'Sidebar'
+  content_bottom: 'Content Bottom'
+  feature: 'Feature'
+  bottom: 'Bottom'
+  footer: 'Footer'
+  copyright: 'Copyright'
+  offcanvas: 'Off Canvas'

@@ -1,0 +1,16 @@
+<article{{ attributes.addClass("event") }}>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 pull-right">
+            {{ content.field_image }}
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <h1>{{ label }}</h1>
+            {% if content.field_date is not empty %}
+                <div class="date">
+                    {{ content.field_date }}
+                </div>
+            {% endif %}
+            {{ content.body }}
+        </div>
+    </div>
+</article>

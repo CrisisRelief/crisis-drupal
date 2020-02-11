@@ -1,0 +1,238 @@
+.input-group, .form-item {
+    margin-bottom:15px;
+    label {
+        font-weight: 400;
+        font-size:14px;
+        font-family: $font-sans;
+    }
+    input {
+        border-radius:0;
+        border:0;
+        border-bottom:2px solid $blue;
+        box-shadow:none;
+        outline:none;
+        line-height:32px;
+        padding:5px 10px;
+        font-size:20px;
+        font-family:$font-sans;
+        font-weight:400;
+        width:100%;
+        color:$md-gray;
+        background:#f0f0f0;
+        &:focus, &:hover {
+            border-bottom:2px solid $dk-blue; 
+        }
+        &.error {
+            border-bottom:2px solid $red;
+        }
+        @include placeholder {
+            color:$gray;
+            opacity:1;
+        }
+    }
+    textarea {
+        border-radius:0;
+        border:0;
+        border-bottom:2px solid $blue;
+        box-shadow:none;
+        outline:none;
+        padding:10px;
+        width:100%;
+        background:#f0f0f0;
+        &:focus, &:hover {
+            border-bottom:2px solid $dk-blue; 
+            box-shadow:none;
+        }
+        @include placeholder {
+            color:$gray;
+            opacity:1;
+        }
+    }
+    &.checkbox {
+        margin-left:15px;
+    }
+}
+.checkbox {
+    margin-top: 0;
+    &.single-check {
+        margin: 0;
+        padding: 0 15px;
+    }
+    legend {
+        font-size:16px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    &:not(.fieldgroup) {
+        padding-left: 25px; 
+    }
+    .webform-options-display-side-by-side {
+        margin: 0!important;
+        padding: 0 25px!important;
+        .js-form-type-radio, .js-form-type-checkbox {
+            padding: 0;
+            width: auto;
+            margin-right: 40px;
+        }
+    }
+    input[type="checkbox"]:checked {            
+        + label {
+            &::after {                        
+                content: "\e903";
+                font-family: icomoon;
+            }
+        }            
+    }
+    label {
+        line-height: 30px;
+        padding-left: 30px;
+        text-align: left;
+        @include breakpoint(xs) {
+            line-height: 24px;
+        }
+        &::before {
+            border:2px solid $blue;
+            border-radius: 0;
+            background:none;
+            height:20px;
+            margin-left: 0;
+            outline: none;
+            top:50%;
+            width: 20px;
+            @include translate(0,-50%);
+        }
+        &::after {            
+            color:$blue;
+            font-size: 16px;
+            height: 20px;
+            line-height: 20px;
+            margin-left: -1px;
+            outline: none;
+            padding-top: 0;
+            top:50%;
+            width: 20px;
+            @include translate(0,-50%);
+        }
+    }
+}
+fieldset {
+    padding:0;
+    margin:0;
+    legend {
+        border:none;
+        color: #fff;
+        font-weight: 400;
+        font-size:16px;
+        font-family: $font-sans;
+    }
+}
+.captcha {
+    clear:both;
+    margin: 15px;
+}
+.webform-submission-form {
+    .webform-element-help {
+        width:18px;
+        height:18px;
+        line-height: 18px;
+    }
+}
+.bootstrap-select.btn-group, .bootstrap-select {
+    width:100%!important;
+    ul {
+        li {
+            display:block!important;
+            a {
+                font-size:14px!important;
+            }
+        }
+    }
+    .dropdown-toggle {
+        background:$blue;
+        border-radius:0;
+        border:none;
+        box-shadow:none;
+        color:#fff;
+        font-size: 18px;
+        font-family:$font-sans;
+        font-weight:400;
+        line-height: 24px;
+        outline:none;
+        overflow:hidden;
+        padding:10px 40px 10px 15px;
+        text-shadow:none;
+        text-transform:none;
+        &:hover, &:focus {
+            box-shadow:none;
+            outline:none;
+            color:#fff;
+            background:darken($blue,10%);
+            text-shadow:none;
+            .bs-caret {
+                .caret {
+                    border:none;
+                }
+            }
+        }
+        .bs-caret {
+            position:absolute;
+            top:0;
+            right:0;
+            width:40px;
+            height:100%;
+            .caret {
+                border:none;
+                position: relative;
+                display: block;
+                height: 23px;
+                right:-10px;
+                @include translate(0,-50%);
+                &::before {
+                    content: "\e902";
+                    font-family: icomoon;
+                    color:#fff;
+                    font-family: 18px;
+                    display: block;
+                    @include rotate(0);
+                    @include transition(transform .3s linear);
+                    @include transform-origin(8px center);
+                }
+            }
+        }
+    }
+    &.dropup, &.open {
+        .bs-caret {
+            .caret {
+                &::before {
+                    @include rotate(180);
+                }
+            }
+        }
+    }
+    .dropdown-menu {
+        border:none;
+        box-shadow:none;
+        border-radius:0;
+        background:$blue;
+        > li {
+            > a {
+                text-transform:none;
+                color:#fff;
+                font-size:18px!important;
+                background:none;
+                &:hover, &:focus {
+                    color:#fff;
+                    background:darken($blue,5%)
+                }
+            }
+            &.selected {
+                > a {
+                    color:#fff;
+                }
+            }
+            + li {
+                border-top:1px solid lighten($blue,2%);
+            }
+        }                                
+    }
+}

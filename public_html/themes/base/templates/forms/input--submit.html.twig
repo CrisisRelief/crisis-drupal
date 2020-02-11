@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Default theme implementation for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if children is not empty %}
+  <button{{ attributes.addClass('btn').removeClass('button') }}>{{ children }}</button>
+{% else %}
+  <button{{ attributes.addClass('btn').removeClass('button') }}>{{ attributes.value|raw }}</button>
+{% endif %}

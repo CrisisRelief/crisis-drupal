@@ -1,0 +1,20 @@
+{% block content %}
+{% set class = paragraph.field_background_color.value %}
+{% if paragraph.field_heading_size.value %}
+    {% set heading = paragraph.field_heading_size.value %}
+{% else%}    
+    {% set heading = "h2" %}
+{% endif %}
+{% if paragraph.field_background_color.value %}
+    {% set bg = " has-bg" %}
+{% endif %}
+{% if paragraph.field_outline.value %}
+    {% set outline = " outline" %}
+{% endif %}
+    <div class="text {{class}}{{bg}}{{outline}}">
+        {% if content.field_title %}
+            <{{heading}}>{{content.field_title.0}}</{{heading}}>
+        {% endif %}
+        {{content.field_body}}
+    </div>
+{% endblock %} 

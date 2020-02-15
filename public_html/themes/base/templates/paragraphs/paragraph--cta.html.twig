@@ -1,17 +1,22 @@
 {% block content %}
 {% set position = paragraph.field_position.value %}
-
-    {% if position == 'background' %}
-        {% set bg = "background:url({{ file_url(paragraph.field_image.entity.uri.value) }}) no-repeat" %}
-    {% endif %}
+{% if position == 'background' %}
+    {% set bg = "background:url({{ file_url(paragraph.field_image.entity.uri.value) }}) no-repeat" %}
+{% endif %}
+{% if paragraph.field_heading_size.value %}
+    {% set heading = paragraph.field_heading_size.value %}
+{% else%}    
+    {% set heading = "h2" %}
+{% endif %}
   <div class="cta {{position}}" style="{{bg}}">
-    {% if position == 'above' %}
+    {% if position != 'background' %}
         <div class="img">{{content.field_image}}</div>
     {% endif %}
-    <h4>{{ content.field_title.0 }}</h4>
-    {{ content.field_blurb }}      
-    {% if position == 'below' %}
-        <div class="img">{{content.field_image}}</div>
-    {% endif %}
+    <div class="blurb">        
+        {% if content.field_title %}
+            <{{heading}}>{{content.field_title.0}}</{{heading}}>
+        {% endif %}
+        {{ content.field_blurb }} 
+    </div>
   </div>
 {% endblock %}

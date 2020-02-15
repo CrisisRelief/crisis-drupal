@@ -1,0 +1,14 @@
+{% block content %}
+{% if paragraph.field_heading_size.value %}
+    {% set heading = paragraph.field_heading_size.value %}
+{% else%}    
+    {% set heading = "h2" %}
+{% endif %}
+    <div class="icon-cta">        
+        <div class="img">{{content.field_image}}</div>
+        {% if content.field_title %}
+            <{{heading}}>{{content.field_title.0}}</{{heading}}>
+        {% endif %}
+        {{content.field_body}}
+    </div>
+{% endblock %} 

@@ -1,24 +1,23 @@
 .site-wrap {
     .btn {
-        border-radius:0;
+        border-radius:4px;
         border:0!important;
         box-shadow:none!important;
         outline:none!important;
         font-family: $font-sans;
-        font-size:18px;
-        font-weight: 300;
-        letter-spacing: 1px;
+        font-size:16px;
+        font-weight: 500;
         line-height:20px;
-        padding:10px 40px;
+        padding:15px 40px;
         position: relative;
-        text-align: left;
+        text-align: center;
         text-decoration:none!important;
-        text-transform: uppercase;
         z-index: 1;
         @include transition(background .3s linear, color .3s linear);
         &.small {
-            font-size:16px;
-            padding:10px 20px;
+            font-size:14px;
+            line-height: 18px;
+            padding:10px 25px;
         }
         &.clear {
             color:#fff!important;
@@ -32,16 +31,6 @@
         &.blue {
             background:$blue;
             color:#fff!important;
-            &::after {
-                content: "";
-                background: darken($blue, 25%);
-                position: absolute;
-                height: 3px;
-                width:0;
-                left: 0;
-                bottom: 0;
-                @include transition(width .3s $cubic);
-            }
             &:hover, &:focus {
                 background: darken($blue, 10%);
                 &::after {
@@ -50,19 +39,20 @@
             }
 
         }
-        &.dkblue {
-            background:$dk-blue;
-            color:#fff!important;
-            &::after {
-                content: "";
-                background: darken($dk-blue, 25%);
-                position: absolute;
-                height: 3px;
-                width:0;
-                left: 0;
-                bottom: 0;
-                @include transition(width .3s $cubic);
+        &.gold {
+            background:gold;
+            color:$dk-blue!important;
+            &:hover, &:focus {
+                background: darken($gold, 10%);
+                &::after {
+                    width: 100%;
+                }
             }
+
+        }
+        &.dk-blue {
+            background:$dk-blue;
+            color:$gold!important;
             &:hover, &:focus {
                 background: darken($dk-blue, 10%);
                 &::after {
@@ -74,16 +64,6 @@
         &.teal {
             background:$teal;
             color:#fff!important;
-            &::after {
-                content: "";
-                background: darken($teal, 25%);
-                position: absolute;
-                height: 3px;
-                width:0;
-                left: 0;
-                bottom: 0;
-                @include transition(width .3s $cubic);
-            }
             &:hover, &:focus {
                 background: darken($teal, 10%);
                 &::after {
@@ -95,16 +75,6 @@
         &.red {
             background:$red;
             color:#fff!important;
-            &::after {
-                content: "";
-                background: darken($red, 25%);
-                position: absolute;
-                height: 3px;
-                width:0;
-                left: 0;
-                bottom: 0;
-                @include transition(width .3s $cubic);
-            }
             &:hover, &:focus {
                 background: darken($red, 10%);
                 &::after {
@@ -115,16 +85,6 @@
         &.gray {
             background:$gray;
             color:#fff!important;
-            &::after {
-                content: "";
-                background:$dk-gray;
-                position: absolute;
-                height: 3px;
-                width:0;
-                left: 0;
-                bottom: 0;
-                @include transition(width .3s $cubic);
-            }
             &:hover, &:focus {
                 background: $md-gray;
                 &::after {

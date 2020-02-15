@@ -54,11 +54,13 @@
         }
     }
     .menu {
+        text-align: right;
         @include breakpoint(sm-max) {
             max-height:0;
             overflow: hidden;
             position: absolute;
             right: 15px;
+            text-align: left;
             top: 100%;
             width:80vw;
             z-index: 9;
@@ -75,7 +77,8 @@
                 background: $dk-blue;
                 padding:20px 30px 30px 30px;
             }
-            ul:not(.contextual-links) {                
+            ul:not(.contextual-links) {    
+                margin: 10px 0 0 0;
                 @include breakpoint(sm-max) {
                     margin:0;
                     padding:0;
@@ -89,28 +92,32 @@
                             margin-top:15px;
                         }
                     }
+                    &.level-1{
+                        display: inline-block;
+                        margin: 0 0 0 15px;
+                    }
                     a:not(.btn) {
+                        @include underline;
+                        @include breakpoint(sm) {
+                            font-size:14px
+                        }
+                        @include breakpoint(xs) {
+                            color:#fff;
+                        }
+                        &:focus, &.is-active {
+                            color:$teal;
+                        }
+                        &::before {
+                            background:$teal;
+                        }
+                        &::after {
+                            background:$dk-blue;
+                        }
                         @include breakpoint(sm-max) {
                             color:#fff;
                             font-size: 18px;
                             position: relative;
                             text-decoration:none;
-                            @include underline;
-                            @include breakpoint(sm) {
-                                font-size:14px
-                            }
-                            @include breakpoint(xs) {
-                                color:#fff;
-                            }
-                            &:focus, &.is-active {
-                                color:$teal;
-                            }
-                            &::before {
-                                background:$teal;
-                            }
-                            &::after {
-                                background:#fff;
-                            }
                         }
                     }
                 }

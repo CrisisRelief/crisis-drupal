@@ -7,7 +7,7 @@
     }
     .blurb {
         bottom: 20px;
-        color: #fff;
+        color: $primary;
         left: 0;
         position: absolute;
         width: 100%;
@@ -15,7 +15,13 @@
         h1 {
             color: $primary;
             font-size: 45px;
-            line-height: 57px;
+            font-weight: 700;
+            line-height: 58px;
+        }
+        a {
+            + a {
+                margin-left: 10px;
+            }
         }
     }
 }

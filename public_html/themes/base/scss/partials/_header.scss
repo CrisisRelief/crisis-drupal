@@ -1,9 +1,12 @@
 .header {
     padding:20px 0;
     .nav-toggle {
-        display: block;
+        display: none;
         float: right;
         margin-top: 20px;
+        @include breakpoint(sm-max) {
+            display: block;    
+        }
         .nav-open & {
             margin-bottom: 10px;
         }
@@ -51,57 +54,63 @@
         }
     }
     .menu {
-        max-height:0;
-        overflow: hidden;
-        position: absolute;
-        right: 15px;
-        top: 100%;
-        width: auto;
-        z-index: 9;
-        @include transition(max-height .3s $cubic);
         @include breakpoint(sm-max) {
-            width:50vw;
+            max-height:0;
+            overflow: hidden;
+            position: absolute;
+            right: 15px;
+            top: 100%;
+            width:80vw;
+            z-index: 9;
+            @include transition(max-height .3s $cubic)
         }
         .nav-open & {
-            max-height:800px;
-            @include transition(max-height 1s $cubic);
+            @include breakpoint(sm-max) {
+                max-height:800px;
+                @include transition(max-height 1s $cubic);
+            }
         }
-        nav {
-            background: $dk-blue;
-            padding:20px 30px 30px 30px;
-            ul:not(.contextual-links) {
-                margin:0;
-                padding:0;
-                list-style-type: none;
-                text-align: right;
-                @include breakpoint(xs){
+        nav {            
+            @include breakpoint(sm-max) {
+                background: $dk-blue;
+                padding:20px 30px 30px 30px;
+            }
+            ul:not(.contextual-links) {                
+                @include breakpoint(sm-max) {
+                    margin:0;
+                    padding:0;
+                    list-style-type: none;
                     text-align:left;
                 }
                 li {
-                    display:block;
-                    + li {
-                        margin-top:15px;
+                    @include breakpoint(sm-max) {
+                        display:block;
+                        + li {
+                            margin-top:15px;
+                        }
                     }
                     a:not(.btn) {
-                        color:#fff;
-                        font-size: 18px;
-                        position: relative;
-                        text-decoration:none;
-                        @include underline;
-                        @include breakpoint(sm) {
-                            font-size:14px
-                        }
-                        @include breakpoint(xs) {
+                        @include breakpoint(sm-max) {
                             color:#fff;
-                        }
-                        &:hover, &:focus, &.is-active {
-                            color:$teal;
-                        }
-                        &::before {
-                            background:$teal;
-                        }
-                        &::after {
-                            background:#fff;
+                            font-size: 18px;
+                            position: relative;
+                            text-decoration:none;
+                            @include underline;
+                            @include breakpoint(sm) {
+                                font-size:14px
+                            }
+                            @include breakpoint(xs) {
+                                color:#fff;
+                            }
+                            &:focus, &.is-active {
+                                color:$teal;
+                            }
+                            &::before {
+                                background:$teal;
+                            }
+                            &::after {
+                                background:#fff;
+                            }
                         }
                     }
                 }

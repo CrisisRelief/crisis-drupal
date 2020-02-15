@@ -1,0 +1,15 @@
+{% extends 'paragraph.html.twig' %}
+{% block content %}
+{% set bg = paragraph.field_background_color.value %}
+{% if paragraph.field_heading_size.value %}
+    {% set heading = paragraph.field_heading_size.value %}
+{% else%}    
+    {% set heading = "h2" %}
+{% endif %}
+  <section class="section {{bg}}">
+    {% if content.field_title %}
+        <{{heading}}>{{content.field_title.0}}</{{heading}}>
+    {% endif %}
+    {{content.field_items}}
+  </section>
+{% endblock %}

@@ -1,5 +1,5 @@
 {% block content %}
-{% set position = paragraph.field_position.value %}
+{% set position = paragraph.field_image_position.value %}
 {% if position == 'background' %}
     {% set bg = "background:url({{ file_url(paragraph.field_image.entity.uri.value) }}) no-repeat" %}
 {% endif %}
@@ -10,13 +10,18 @@
 {% endif %}
   <div class="cta {{position}}" style="{{bg}}">
     {% if position != 'background' %}
-        <div class="img">{{content.field_image}}</div>
+        <div class="img"><a href="{{ paragraph.field_link.0.url }}">{{content.field_image}}</a></div>
     {% endif %}
-    <div class="blurb">        
-        {% if content.field_title %}
-            <{{heading}}>{{content.field_title.0}}</{{heading}}>
+    <div class="blurb">      
+        <div class="inner">        
+            {% if content.field_title %}
+                <{{heading}}>{{content.field_title.0}}</{{heading}}>
+            {% endif %}
+            {{ content.field_blurb }} 
+        </div>
+        {% if content.field_link.0 %}
+            <a href="{{ paragraph.field_link.0.url }}">{{ paragraph.field_link.0.title }}</a>
         {% endif %}
-        {{ content.field_blurb }} 
     </div>
   </div>
 {% endblock %}

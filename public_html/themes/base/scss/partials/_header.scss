@@ -96,28 +96,37 @@
                         display: inline-block;
                         margin: 0 0 0 15px;
                     }
-                    a:not(.btn) {
-                        @include underline;
-                        @include breakpoint(sm) {
-                            font-size:14px
+                    a {
+                        &.btn {
+                            border-radius: 30px;
+                            font-size: 14px;
+                            line-height: 21px;
+                            padding: 5px 25px;
+                            vertical-align: middle;
                         }
-                        @include breakpoint(xs) {
-                            color:#fff;
-                        }
-                        &:focus, &.is-active {
-                            color:$teal;
-                        }
-                        &::before {
-                            background:$teal;
-                        }
-                        &::after {
-                            background:$dk-blue;
-                        }
-                        @include breakpoint(sm-max) {
-                            color:#fff;
-                            font-size: 18px;
+                        &:not(.btn) {
                             position: relative;
-                            text-decoration:none;
+                            @include underline;
+                            @include breakpoint(sm) {
+                                font-size:14px
+                            }
+                            @include breakpoint(xs) {
+                                color:#fff;
+                            }
+                            &:focus, &.is-active {
+                                color:$teal;
+                            }
+                            &::before {
+                                background:$dk-blue;
+                            }
+                            &::after {
+                                display: none
+                            }
+                            @include breakpoint(sm-max) {
+                                color:#fff;
+                                font-size: 18px;
+                                text-decoration:none;
+                            }
                         }
                     }
                 }

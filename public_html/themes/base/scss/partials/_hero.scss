@@ -22,11 +22,6 @@
                 line-height: 45px;
             }
         }
-        p {            
-            @include breakpoint(sm-max) {
-                display:none;
-            }
-        }
         a {
             @include breakpoint(sm-max) {
                 display:block;

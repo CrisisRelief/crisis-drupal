@@ -17,8 +17,21 @@
             font-size: 45px;
             font-weight: 700;
             line-height: 58px;
+            @include breakpoint(sm-max) {
+                font-size: 35px;
+                line-height: 45px;
+            }
+        }
+        p {            
+            @include breakpoint(sm-max) {
+                display:none;
+            }
         }
         a {
+            @include breakpoint(sm-max) {
+                display:block;
+                margin-bottom: 10px;
+            }
             + a {
                 margin-left: 10px;
             }

@@ -12,9 +12,17 @@
         .blurb {
             padding-left: 30px;
             place-self: center start;
+            @include breakpoint(sm-max) {
+                padding: 0;
+            }
             .inner {
                 border-left: 5px solid $gold;
                 padding-left: 20px;
+                @include breakpoint(sm-max) {
+                    border-top: 5px solid $gold;
+                    margin-top: 20px;
+                    padding: 20px 0 0 0 ;
+                }
                 + a {
                     padding-left:30px;
                 }
@@ -36,10 +44,18 @@
             padding-right: 30px;
             place-self: center end;
             text-align: right;
+            @include breakpoint(sm-max) {
+                padding: 0;
+                text-align: left;
+            }
             .inner {
                 border-right: 5px solid $gold;
                 padding-right: 20px;
-                margin-bottom: 20px;
+                @include breakpoint(sm-max) {
+                    border-top: 5px solid $gold;
+                    margin-top: 20px;
+                    padding: 20px 0 0 0 ;
+                }
                 + a {
                     padding-right:30px;
                 }

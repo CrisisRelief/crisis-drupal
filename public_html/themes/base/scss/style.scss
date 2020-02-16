@@ -17,8 +17,10 @@
 @import 'partials/hero';
 @import 'partials/wysiwyg';
 @import 'partials/accordions';
+@import 'partials/section';
 @import 'partials/columns';
 @import 'partials/cta-icon';
+@import 'partials/cta';
 
 /*XL Grid*/
 @include breakpoint(xl) {

@@ -1,0 +1,22 @@
+.section {
+    padding: 50px 20px;
+    &.primary {
+        background: $primary; 
+    }
+    &.secondary {
+        background: $secondary; 
+    }
+    &.tertiary {
+        background: $tertiary; 
+    }
+    &.gray {
+        background: $lt-gray;
+    }
+    &.white {
+        background: #fff;
+    }
+    .heading {
+        max-width: 0 0 30px 0;
+        text-align: center;
+    }
+}

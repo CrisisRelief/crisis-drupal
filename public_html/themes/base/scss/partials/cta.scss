@@ -16,13 +16,15 @@
                 padding: 0;
             }
             .inner {
-                border-left: 5px solid $gold;
                 padding-left: 20px;
                 @include breakpoint(sm-max) {
                     border: none;
                     border-top: 5px solid $gold;
                     margin-top: 20px;
                     padding: 20px 0 0 0 ;
+                }
+                &::before {
+                    left: 0;
                 }
                 + a {
                     padding-left:30px;
@@ -50,18 +52,37 @@
                 text-align: left;
             }
             .inner {
-                border-right: 5px solid $gold;
                 padding-right: 20px;
                 @include breakpoint(sm-max) {
-                    border: none;
                     border-top: 5px solid $gold;
                     margin-top: 20px;
                     padding: 20px 0 0 0 ;
+                }
+                &::before {
+                    right: 0;
                 }
                 + a {
                     padding-right:30px;
                 }
             }
+        }
+    }
+    .inner {
+        &::before {
+            background: $gold;
+            content: "";
+            position: absolute;
+            height: calc(100% - 10px);
+            top: 10px;
+            width: 5px;
+            @include breakpoint(sm-max) {
+                display: none;
+            }
+        }
+        p {
+            color:$dk-blue;
+            font-size: 16px;
+            line-height: 24px;
         }
     }
     .img {

@@ -29,6 +29,9 @@
             }
             + a {
                 margin-left: 10px;
+                @include breakpoint(sm-max) {
+                    margin-left: 0;
+                }
             }
         }
     }

@@ -103,9 +103,9 @@ body {
         font-weight: 600;
         line-height: 48px;
         margin: 0 0 35px 0;
-        @include breakpoint(xs) {
-            font-size: 45px;
-            line-height: 55px;
+        @include breakpoint(sm-max) {
+            font-size: 35px;
+            line-height: 45px;
         }
     }
     h2 {

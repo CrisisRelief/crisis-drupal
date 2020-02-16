@@ -6,6 +6,9 @@
     margin-bottom: 50px;
     &.left {
         grid-template-columns: 55% 45%;
+        @include breakpoint(sm-max) {
+            grid-template-columns: 100%;            
+        }
         .blurb {
             padding-left: 30px;
             place-self: center start;
@@ -20,8 +23,14 @@
     }
     &.right {
         grid-template-columns: 45% 55%;
+        @include breakpoint(sm-max) {
+            grid-template-columns: 100%;            
+        }
         .img {
             grid-column-start: 2;
+            @include breakpoint(sm-max) {
+                grid-column-start: 1;            
+            }
         }
         .blurb {
             padding-right: 30px;

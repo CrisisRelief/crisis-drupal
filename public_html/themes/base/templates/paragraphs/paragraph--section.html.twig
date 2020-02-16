@@ -7,9 +7,11 @@
     {% set heading = "h2" %}
 {% endif %}
   <section class="section {{bg}}">
-    {% if content.field_title %}
-        <{{heading}} class="heading">{{content.field_title.0}}</{{heading}}>
-    {% endif %}
-    {{content.field_items}}
+    <div class="container">
+        {% if content.field_title %}
+            <{{heading}} class="heading">{{content.field_title.0}}</{{heading}}>
+        {% endif %}
+        {{content.field_items}}
+      </div>
   </section>
 {% endblock %}

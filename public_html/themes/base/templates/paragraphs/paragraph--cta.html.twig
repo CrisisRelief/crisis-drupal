@@ -17,7 +17,7 @@
             {% if content.field_title %}
                 <{{heading}}>{{content.field_title.0}}</{{heading}}>
             {% endif %}
-            {{ content.field_blurb }} 
+            {{ content.field_body }} 
         </div>
         {% if content.field_link.0 %}
             <a href="{{ paragraph.field_link.0.url }}">{{ paragraph.field_link.0.title }}</a>

@@ -13,4 +13,17 @@
             }
         }
     }
+    .social {
+        a {
+            color: #fff;
+            display: inline-block;
+            font-size: 21px;
+            &:hover, &:focus {
+                color:$teal;
+            }
+            + a {
+                margin-left: 20px;
+            }
+        }
+    }
 }

@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:600|Source+Sans+Pro:400,400i,600,700&display=swap');
 @font-face {
   font-family: 'icomoon';
-  src:  url('/themes/base/fonts/icomoon.eot?m9xvs6');
-  src:  url('/themes/base/fonts/icomoon.eot?m9xvs6#iefix') format('embedded-opentype'),
-    url('/themes/base/fonts/icomoon.ttf?m9xvs6') format('truetype'),
-    url('/themes/base/fonts/icomoon.woff?m9xvs6') format('woff'),
-    url('/themes/base/fonts/icomoon.svg?m9xvs6#icomoon') format('svg');
+  src:  url('/themes/base/fonts/icomoon.eot?drfxo2');
+  src:  url('/themes/base/fonts/icomoon.eot?drfxo2#iefix') format('embedded-opentype'),
+    url('/themes/base/fonts/icomoon.ttf?drfxo2') format('truetype'),
+    url('/themes/base/fonts/icomoon.woff?drfxo2') format('woff'),
+    url('/themes/base/fonts/icomoon.svg?drfxo2#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 @font-face {
     font-family: 'Lemon/Milk';
@@ -34,14 +35,32 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-check:before {
-  content: "\e903";
+.icon-linkedin:before {
+  content: "\e904";
+}
+.icon-instagram:before {
+  content: "\e905";
+}
+.icon-facebook:before {
+  content: "\e908";
+}
+.icon-twitter:before {
+  content: "\e909";
+}
+.icon-youtube:before {
+  content: "\f16a";
 }
 .icon-heart:before {
   content: "\f004";
 }
+.icon-heart-outline:before {
+  content: "\e90a";
+}
 .icon-close:before {
   content: "\e5cd";
+}
+.icon-check:before {
+  content: "\e903";
 }
 .icon-bookmark:before {
   content: "\e431";
@@ -55,20 +74,11 @@
 .icon-secure:before {
   content: "\e8e8";
 }
-.icon-gov:before {
-  content: "\e84f";
+.icon-flag:before {
+  content: "\e90b";
 }
 .icon-pdf:before {
   content: "\e415";
-}
-.icon-twitter:before {
-  content: "\f099";
-}
-.icon-facebook:before {
-  content: "\f09a";
-}
-.icon-youtube:before {
-  content: "\f16a";
 }
 .icon-arrow-left:before {
   content: "\e900";
@@ -84,9 +94,6 @@
 }
 .icon-search:before {
   content: "\e907";
-}
-.icon-calendar:before {
-  content: "\e90b";
 }
 
 

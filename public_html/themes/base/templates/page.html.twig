@@ -115,24 +115,18 @@
         </div>
     </section>
 {% endif %} 
-{% if page.footer %}
+{% if page.footer or if page.copyright %}
     <section class="footer" role="complimentary" aria-label="Footer Content">
         <div class="container">
             <div class="row">
                 {{ page.footer }}
             </div>
-        </div>
-    </section>
-{% endif %}
-{% if page.copyright %}
-    <section class="copyright" role="complimentary" aria-label="Copyright Content">
-        <div class="container">
             <div class="row">
                 {{ page.copyright }}
             </div>
         </div>
     </section>
-{% endif %} 
+{% endif %}
 </div>
 {% if page.offcanvas %}
     <section class="offcanvas">

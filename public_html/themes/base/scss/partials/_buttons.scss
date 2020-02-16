@@ -28,10 +28,6 @@
                 color:#fff;
             }
         }
-        &.outline {
-            background: none;
-            border: 2px solid;
-        }
         &.blue {
             background:$blue;
             color:#fff;
@@ -130,6 +126,10 @@
             &:hover, &:focus {
                 background: $md-gray;
             }
+        }
+        &.outline {
+            background: none;
+            border: 2px solid;
         }
         &.link {
             background:transparent;

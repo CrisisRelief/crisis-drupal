@@ -74,6 +74,7 @@
         }
     }
     .inner {
+        position: relative;
         &::before {
             background: $gold;
             content: "";

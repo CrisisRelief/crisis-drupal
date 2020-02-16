@@ -1,8 +1,10 @@
 .cta {
+    display: grid;
+    place-items: start stretch;
+    justify-content: stretch;
+    grid-auto-flow: dense;
     &.left {
-        .img {
-            float: left;
-        }
+        grid-template-columns: 55% 45%;
         .blurb {
             padding-left: 30px;
             .inner {
@@ -15,8 +17,9 @@
         }
     }
     &.right {
+        grid-template-columns: 45% 55%;
         .img {
-            float: right;
+            grid-column-start: 2;
         }
         .blurb {
             padding-right: 30px;
@@ -32,5 +35,8 @@
     }
     .img {
         border: 5px solid $gray;
+        img {
+            width: 100%;
+        }
     }
 }

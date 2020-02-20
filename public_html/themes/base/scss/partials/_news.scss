@@ -1,0 +1,111 @@
+@charset "UTF-8";
+.site-wrap {    
+    .news-item {
+        + .news-item {
+            border-top: 1px solid $xl-gray;
+            margin-top: 15px;
+            padding-top: 30px;
+        }
+    }
+    .news-featured {
+        display: grid;
+        place-items: start stretch;
+        justify-content: stretch;
+        grid-auto-flow: dense;
+        margin-bottom: 50px;
+        &:nth-of-type(odd) {
+            grid-template-columns: 52% 48%;
+            @include breakpoint(sm-max) {
+                grid-template-columns: 100%;            
+            }
+            .blurb {
+                padding-left: 40px;
+                place-self: center start;
+                @include breakpoint(sm-max) {
+                    padding: 0;
+                }
+                .inner {
+                    padding-left: 20px;
+                    @include breakpoint(sm-max) {
+                        border: none;
+                        border-top: 5px solid $gold;
+                        margin-top: 20px;
+                        padding: 20px 0 0 0 ;
+                    }
+                    &::before {
+                        left: 0;
+                    }
+                    + a {
+                        margin-left:20px;
+                        @include breakpoint(sm-max) {
+                            margin: 15px 0 0 0;
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-of-type(even) {
+            grid-template-columns: 48% 52%;
+            @include breakpoint(sm-max) {
+                grid-template-columns: 100%;            
+            }
+            .img {
+                grid-column-start: 2;
+                @include breakpoint(sm-max) {
+                    grid-column-start: 1;            
+                }
+            }
+            .blurb {
+                padding-right: 40px;
+                place-self: center end;
+                text-align: right;
+                @include breakpoint(sm-max) {
+                    padding: 0;
+                    text-align: left;
+                }
+                .inner {
+                    padding-right: 20px;
+                    @include breakpoint(sm-max) {
+                        border-top: 5px solid $gold;
+                        margin-top: 20px;
+                        padding: 20px 0 0 0 ;
+                    }
+                    &::before {
+                        right: 0;
+                    }
+                    + a {
+                        margin-right:20px;
+                        @include breakpoint(sm-max) {
+                            margin: 15px 0 0 0;
+                        }
+                    }
+                }
+            }
+        }
+        .inner {
+            position: relative;
+            &::before {
+                background: $gold;
+                content: "";
+                position: absolute;
+                height: calc(100% - 10px);
+                top: 10px;
+                width: 5px;
+                @include breakpoint(sm-max) {
+                    display: none;
+                }
+            }
+            p {
+                color:$dk-blue;
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+        .img {
+            border: 10px solid $gray;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

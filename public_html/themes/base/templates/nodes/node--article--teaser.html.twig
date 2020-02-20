@@ -1,7 +1,7 @@
-<article{{ attributes }}>
+<article{{ attributes.addClass('news-item') }}>
     <div class="text">
         <h3><a href="{{ url }}">{{ label }}</a></h3>
-        <p>{{ content.body.0 }}</p>
-        <a href="{{ url }}" class="btn underline red" aria-label="{{ label.0 }}">Read More</a>
+        {{ content.field_content }}
+        <a href="{{ url }}" class="btn gold" aria-label="Read more about {{ label.0 }}">Read More</a>
     </div>
 </article>

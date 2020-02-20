@@ -1,0 +1,12 @@
+<article class="news-featured">
+    <div class="img">
+        {{ content.field_image }}
+    </div>
+    <div class="blurb">
+        <div class="inner">
+            <h2><a href="{{ url }}">{{ label }}</a></h2>
+            {{ content.field_content }}
+            <a href="{{ url }}" class="btn teal small" aria-label="Read more about {{ label.0 }}">Read More</a>
+        </div>
+    </div>
+</article>

@@ -1,9 +1,7 @@
 <article{{ attributes.addClass('news-item') }}>
     <div class="text">
         <h3><a href="{{ url }}">{{ label }}</a></h3>
-        {% for item in content.field_content %}
-            {{ item }}
-        {% endfor %}
+        {{ content.field_content.0 %}}
         {% for i in 0..content.field_content|length %}
             {{loop.index}}
         {% endfor %}

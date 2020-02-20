@@ -2,9 +2,6 @@
     <div class="text">
         <h3><a href="{{ url }}">{{ label }}</a></h3>
         {{ content.field_content.0 }}
-        {% for i in 0..content.field_content|length %}
-            {{loop.index}}
-        {% endfor %}
         <a href="{{ url }}" class="btn gold" aria-label="Read more about {{ label.0 }}">Read More</a>
     </div>
 </article>

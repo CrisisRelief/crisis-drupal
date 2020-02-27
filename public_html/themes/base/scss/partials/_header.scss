@@ -8,11 +8,12 @@
         position: absolute;
         top: 0;
         width: 100%;
-        z-index: 2;
-        @include transition(opacity .3s linear);
+        z-index: -1;
+        @include transition(opacity .3s linear .1s);
     }
     .nav-open & {
         opacity: .4;
+        z-index: 2;
     }
 }
 .header {

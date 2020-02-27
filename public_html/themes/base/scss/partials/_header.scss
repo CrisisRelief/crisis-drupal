@@ -1,9 +1,28 @@
+.nav-open {
+    .site-wrap {
+        &::before {
+            background: #000;
+            content: "";
+            height: 100%;
+            left: 0;
+            opacity: .4;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+    }
+}
 .header {
+    background:#fff;
     padding:20px 0;
+    .nav-open & {
+        z-index: 9;
+    }
     .nav-toggle {
         display: none;
         float: right;
-        margin-top: 20px;
+        margin-top: 12px;
         @include breakpoint(sm-max) {
             display: block;    
         }
@@ -84,15 +103,15 @@
                     text-align:left;
                 }
                 li {
-                    @include breakpoint(sm-max) {
-                        display:block;
-                        + li {
-                            margin-top:15px;
-                        }
-                    }
                     &.level-1{
                         display: inline-block;
                         margin: 0 0 0 15px;
+                        @include breakpoint(sm-max) {
+                            display:block;
+                            + li {
+                                margin-top:15px;
+                            }
+                        }
                     }
                     a {
                         &.btn {

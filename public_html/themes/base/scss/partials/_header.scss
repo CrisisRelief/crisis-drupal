@@ -56,25 +56,23 @@
     .menu {
         text-align: right;
         @include breakpoint(sm-max) {
+            background: #fff;
             max-height:0;
+            min-height: 100vh;
             overflow: hidden;
             position: absolute;
-            right: 15px;
+            right: 0;
             text-align: left;
-            top: 100%;
-            width:80vw;
+            top: calc(100% + 20px);
+            width:0;
             z-index: 9;
-            @include transition(max-height .3s $cubic)
+            @include transition(width .3s $cubic)
         }
         .nav-open & {
-            @include breakpoint(sm-max) {
-                max-height:800px;
-                @include transition(max-height 1s $cubic);
-            }
+            width: 80vw;
         }
         nav {            
             @include breakpoint(sm-max) {
-                background: $dk-blue;
                 padding:20px 30px 30px 30px;
             }
             ul:not(.contextual-links) {    
@@ -103,6 +101,13 @@
                             line-height: 21px;
                             padding: 5px 25px 7px;
                             vertical-align: 2px;
+                            @include breakpoint(sm-max) {
+                                background:none;
+                                color: $secondary;
+                                font-size: 18px;
+                                padding:0;
+                                text-decoration:none;
+                            }
                         }
                         &:not(.btn) {
                             position: relative;
@@ -123,7 +128,7 @@
                                 display: none
                             }
                             @include breakpoint(sm-max) {
-                                color:#fff;
+                                color: $secondary;
                                 font-size: 18px;
                                 text-decoration:none;
                             }

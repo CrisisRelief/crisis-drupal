@@ -10,10 +10,10 @@
         width: 100%;
         z-index: -1;
         @include transition(opacity .3s linear .1s);
-    }
-    .nav-open & {
-        opacity: .4;
-        z-index: 2;
+        .nav-open & {
+            opacity: .4;
+            z-index: 2;
+        }
     }
 }
 .header {
@@ -61,7 +61,7 @@
             .nav-open & {
                 &:nth-of-type(1) {
                     background:$teal;
-                    margin-bottom: -2px;
+                    margin-bottom: -4px;
                     transform: rotate(45deg);
                 }
                 &:nth-of-type(2) {

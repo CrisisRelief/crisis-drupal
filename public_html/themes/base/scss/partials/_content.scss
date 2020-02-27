@@ -16,6 +16,9 @@
         &.main {
             .content {
                 margin-top: 60px;
+                @include breakpoint(sm-max) {
+                    margin-top: 20px;
+                }
             }
             .sidebar {
                 .nav {

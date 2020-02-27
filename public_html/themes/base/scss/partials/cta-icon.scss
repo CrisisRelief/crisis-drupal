@@ -3,6 +3,10 @@
     text-align: center;  
     img {
         margin-bottom: 30px;
+        @include breakpoint(sm-max) {
+            margin-bottom: 20px;
+            width: 150px;
+        }
     }
     p {        
         font-size: 16px;

@@ -25,9 +25,11 @@
             }
         }
         p {
-            font-display: 16px;
-            line-height: 21px;
-            text-align: center;
+            @include breakpoint(sm-max) {
+                font-display: 16px;
+                line-height: 21px;
+                text-align: center;
+            }
         }
         a {
             @include breakpoint(sm-max) {

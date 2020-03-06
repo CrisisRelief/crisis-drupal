@@ -19,8 +19,9 @@
             line-height: 58px;
             @include breakpoint(sm-max) {
                 font-size: 35px;
-                font-weight: 500;
+                font-weight: 600;
                 line-height: 45px;
+                margin-bottom: 20px;
                 text-align: center;
             }
         }

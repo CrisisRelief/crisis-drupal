@@ -19,8 +19,15 @@
             line-height: 58px;
             @include breakpoint(sm-max) {
                 font-size: 35px;
+                font-weight: 500;
                 line-height: 45px;
+                text-align: center;
             }
+        }
+        p {
+            font-display: 16px;
+            line-height: 21px;
+            text-align: center;
         }
         a {
             @include breakpoint(sm-max) {
